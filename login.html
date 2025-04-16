@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso à Aula</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      plugins: [window.daisyui],
+    };
+  </script>
+
+  <style>
+    body {
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center" oncontextmenu="return false">
+
+  <!-- Formulário de Login -->
+  <div class="card w-full max-w-md bg-base-100 shadow-xl p-6">
+    
+    <!-- Imagem do Logo -->
+    <div class="flex justify-center mb-4">
+      <img src="https://lms.iel-ce.org.br/login/images/logo-padrao.png" alt="Logo" class="w-32 h-auto">
+    </div>
+
+    <!-- Título -->
+    <h2 class="text-2xl font-bold mb-4 text-center">Verificação de Acesso</h2>
+
+    <!-- Formulário de Login -->
+    <form action="index.html" method="GET" class="space-y-4" id="loginForm">
+      <div>
+        <label class="label">
+          <span class="label-text">CPF</span>
+        </label>
+        <input 
+          type="text" 
+          class="input input-bordered w-full" 
+          placeholder="123.456.789-00" 
+          inputmode="numeric" 
+          pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+          maxlength="14" 
+          required 
+          title="Digite o CPF no formato: 123.456.789-00"
+        />
+      </div>
+
+      <button type="submit" class="btn w-full bg-[#22c55e] text-white">Entrar</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
