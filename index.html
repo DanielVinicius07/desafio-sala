@@ -1,72 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Aula Especial</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.0/dist/full.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso à Aula</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      plugins: [window.daisyui],
+    };
+  </script>
+
   <style>
     body {
       user-select: none;
-      background-color: white; /* Cor de fundo da tela branca */
-      height: 100vh; /* A altura é 100% da tela */
-      overflow: hidden; /* Impede que a tela role */
-    }
-
-    /* Logo no canto superior esquerdo sem fundo */
-    .logo {
-      position: absolute;
-      top: 20px;  /* Distância do topo */
-      left: 20px; /* Distância da esquerda */
-      width: 150px; /* Largura do logo */
-      padding: 10px; /* Espaçamento ao redor do logo */
-      border-radius: 10px; /* Bordas arredondadas */
     }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-base-200">
+<body class="min-h-screen flex items-center justify-center" oncontextmenu="return false">
 
-  <!-- Logo no canto superior esquerdo sem fundo -->
-  <img src="https://lms.iel-ce.org.br/login/images/logo-padrao.png" alt="Logo" class="logo" />
+  <!-- Formulário de Login -->
+  <div class="card w-full max-w-md bg-base-100 shadow-xl p-6">
+    
+    <!-- Imagem do Logo -->
+    <div class="flex justify-center mb-4">
+      <img src="https://lms.iel-ce.org.br/login/images/logo-padrao.png" alt="Logo" class="w-32 h-auto">
+    </div>
 
-  <div class="card w-full max-w-4xl shadow-2xl bg-base-100">
-    <div class="card-body">
-      <h2 class="card-title text-2xl">Aula Especial</h2>
-      <p class="text-gray-600">
-        Esta é uma aula exclusiva para os melhores alunos. Clique no botão abaixo para iniciar a aula ao vivo.
-      </p>
+    <!-- Título -->
+    <h2 class="text-2xl font-bold mb-4 text-center">Verificação de Acesso</h2>
 
-      <!-- Botão de "Iniciar Aula" -->
-      <div class="mt-4">
-        <input type="checkbox" id="abrir-aula" class="peer hidden" />
-        <label for="abrir-aula" class="btn btn-success w-full cursor-pointer">
-          Aula iniciada
+    <!-- Formulário de Login -->
+    <form action="home.html" method="GET" class="space-y-4" id="loginForm">
+      <div>
+        <label class="label">
+          <span class="label-text">CPF</span>
         </label>
-
-        <!-- Conteúdo da aula -->
-        <div class="mt-6 hidden peer-checked:block">
-          <div class="rounded-xl overflow-hidden aspect-video border border-gray-300">
-            <iframe 
-              src="https://www.youtube.com/embed/Gd_nOLvKYSQ?autoplay=1&controls=0&rel=0&modestbranding=1"
-              class="w-full h-full"
-              frameborder="0"
-              allow="camera; microphone; fullscreen; autoplay"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-
-          <!-- Botão estético de tela cheia -->
-          <div class="card-actions justify-end mt-4">
-            <button class="btn btn-outline btn-primary cursor-default">
-              Ativar Tela Cheia
-            </button>
-          </div>
-        </div>
+        <input 
+          type="text" 
+          class="input input-bordered w-full" 
+          placeholder="123.456.789-00" 
+          inputmode="numeric" 
+          pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+          maxlength="14" 
+          required 
+          title="Digite o CPF no formato: 123.456.789-00"
+        />
       </div>
 
-    </div>
+      <button type="submit" class="btn w-full bg-[#22c55e] text-white">Entrar</button>
+    </form>
+
   </div>
 
 </body>
-</html
+</html>
